@@ -19,20 +19,46 @@ export default function CurrentWeather({ data }) {
 
   return (
     <>
-      <Text>{data?.city?.name}</Text>
-      <Text>Aujourd'hui</Text>
+      <Text style={styles.city} >{data?.city?.name}</Text>
+      <Text style={styles.today} >Aujourd'hui</Text>
 
       <Image
         source={{ uri: getIcon(currentWeather?.weather[0].icon) }}
-        style={{ width: 100, height: 100 }}
+        style={styles.image}
       />
 
-      <Text>{Math.round(currentWeather?.main.temp)}°C</Text>
-      <Text>{currentWeather?.weather[0].description}</Text>
+      <Text style={styles.temp} >{Math.round(currentWeather?.main.temp)}°C</Text>
+      <Text style={styles.description} >{currentWeather?.weather[0].description}</Text>
     </>
   )
 }
 
+const COLOR = "#545658";
+
 const styles = StyleSheet.create({
-  city: {}
+  city: {
+    fontSize: 36,
+    fontWeight: '500',
+    color: COLOR
+  },
+  today: {
+    fontSize: 24,
+    fontWeight: '300',
+    color: COLOR
+  },
+  image: {
+    width: 150,
+    height: 150,
+    marginVertical: 20
+  },
+  temp: {
+    fontSize: 72,
+    fontWeight: 'bold',
+    color: COLOR
+  },
+  description: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: COLOR
+  }
 })

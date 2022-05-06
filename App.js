@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import axios from "axios";
 import CurrentWeather from './components/CurrentWeather';
+import Forecasts from './components/Forecasts';
 
 const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=80c8e75f9376b989debb42df8935b82b&lang=fr&units=metric`;
 
@@ -47,6 +48,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <CurrentWeather data={data} />
+      <Forecasts data={data} />
     </View>
   );
 }
